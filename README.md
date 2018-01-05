@@ -34,7 +34,7 @@ This framework has some code that can be GPU-accelerated using the GPU-enabled D
 * 1.5 GB free hard disk space
 * A minimum of a 4-core, 4-thread x86 CPU. 
 * A minimum of 8 GB of RAM, 16 GB or more is highly recommended.
-* PyCharm Professional (optional).
+* PyCharm Professional IDE (optional, recommended when using a Docker container as execution environment).
 
 ### Notes
 
