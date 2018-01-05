@@ -49,7 +49,7 @@ The OpenCV version required to run this code is OpenCV 3.3.x. OpenCV must be com
 
 Ensure you have an environment variable according to this table : 
 
-| With Docker    |                                 | Without Docker    |                          |  
+| With Docker                                     || Without Docker                              ||  
 |:--------------:|:-------------------------------:|:-----------------:|:------------------------:|  
 | Name           | Value                           | Name              | Value                    |  
 | VIRTUAL_ENV    | /home/ubuntu/ml_venv/project    | VIRTUAL_ENV       |  /home/ubuntu/ml_venv/   |  
