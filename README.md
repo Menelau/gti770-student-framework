@@ -55,7 +55,7 @@ Ensure you have an environment variable according to this table :
 | VIRTUAL_ENV    | /home/ubuntu/ml_venv/project    | VIRTUAL_ENV       |  /home/ubuntu/ml_venv/   |  
 
 
-To launch the script :
+To launch the script :  
 `cd core`  
 `python3 main.py`
 
