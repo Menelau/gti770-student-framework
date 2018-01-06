@@ -13,6 +13,8 @@
   :Email: pierre-luc.delisle.1@ens.etsmtl.ca
 """
 
+import os
+
 from flask import request
 from flask_restplus import Resource, Namespace
 from werkzeug.utils import secure_filename
@@ -57,6 +59,6 @@ class MusicGenreClassification(Resource):
         """
         args = galaxy_image_arguments.parse_args(request)
         filename = secure_filename(args["galaxy_image"].filename)
-        args["galaxy_image"].save("/opt/project/web_app/uploads/" + filename)
+        args["galaxy_image"].save(os.environ["VIRTUAL_ENV"] + "/web_app/uploads/" + filename)
 
         return operations.calssify(filename), 200

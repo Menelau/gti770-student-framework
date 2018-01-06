@@ -16,7 +16,7 @@
 from flask import Flask
 
 from web_app import config_file
-from web_app.api.endpoints.classify import api as analyze_galaxy
+from web_app.api.endpoints.galaxy.classify import api as analyze_galaxy
 from web_app.api.restplus import api, blueprint
 
 app = Flask(__name__)
