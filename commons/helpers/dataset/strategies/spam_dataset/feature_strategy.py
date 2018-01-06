@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 """
 Cours :
     GTI770 — Systèmes intelligents et apprentissage machine

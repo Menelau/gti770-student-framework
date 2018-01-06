@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# encoding: utf-8
+# -*- coding: utf-8 -*-
 
 """
   This file contains all the necessary settings, constants and paths the Flask web application uses.
