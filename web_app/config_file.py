@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 """
-  This file contains all the necessary settings, constant and paths the Flask web application uses.
+  This file contains all the necessary settings, constants and paths the Flask web application uses.
 
   :Date: 2017-12-10
   :Author: Pierre-Luc Delisle
