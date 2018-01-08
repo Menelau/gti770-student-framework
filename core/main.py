@@ -45,6 +45,7 @@ def main():
     # Get the ground truth CSV file from script's parameters.
     galaxy_csv_file = os.environ["VIRTUAL_ENV"] + "/data/csv/galaxy/galaxy.csv"
     galaxy_feature_csv_file = os.environ["VIRTUAL_ENV"] + "/data/csv/galaxy/galaxy_feature_vectors.csv"
+    galaxy_images_path = os.environ["VIRTUAL_ENV"] + "/data/images/"
 
     # Create instance of data set loading strategies.
     galaxy_image_data_set_strategy = GalaxyDataSetImageStrategy()
@@ -80,7 +81,7 @@ def main():
                                                                        validation_size=np.float32(validation_size))
 
     # Process galaxies.
-    galaxy_processor = GalaxyProcessor(os.environ["VIRTUAL_ENV"] + "/data/images/")
+    galaxy_processor = GalaxyProcessor(galaxy_images_path)
     features = galaxy_processor.process_galaxy(label_dataset)
 
     # Save extracted features to file.
