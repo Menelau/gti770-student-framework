@@ -71,7 +71,17 @@ class GalaxyDataSetFeatureStrategy:
         except AttributeError:
             raise ValidationSizeException("Validation size is not a valid floating point number.")
 
-    def _create_datasets(self, features, labels, validation_size):
+    def create_datasets(self, features, labels, validation_size):
+        """ Create a data set.
+
+          Args:
+              img_names: The file name of the images.
+              labels: The associated label (class) of images.
+              validation_size: The desired amount of samples needed to build the validation set.
+
+          Returns:
+              data_sets: A DataSet object containing data from previously parsed CSV files.
+        """
 
         # Creates inner DataSets class.
         class DataSets(object):
@@ -172,7 +182,7 @@ class GalaxyDataSetFeatureStrategy:
         """
         try:
             features, labels = self._load_feature_vector(csv_file, one_hot)
-            return self._create_datasets(features, labels, validation_size)
+            return self.create_datasets(features, labels, validation_size)
 
         except Exception as e:
             raise UnableToLoadDatasetException("Unable to load galaxies data set with cause: " + str(e))

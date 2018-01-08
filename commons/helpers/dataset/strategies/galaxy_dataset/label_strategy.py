@@ -71,6 +71,16 @@ class GalaxyDataSetLabelStrategy:
             raise ValidationSizeException("Validation size is not a valid floating point number.")
 
     def _create_datasets(self, img_names, labels, validation_size):
+        """ Create a data set.
+
+          Args:
+              img_names: The file name of the images.
+              labels: The associated label (class) of images.
+              validation_size: The desired amount of samples needed to build the validation set.
+
+          Returns:
+              data_sets: A DataSet object containing data from previously parsed CSV files.
+        """
 
         # Creates inner DataSets class.
         class DataSets(object):
