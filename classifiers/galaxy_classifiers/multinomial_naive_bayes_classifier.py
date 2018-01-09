@@ -21,8 +21,8 @@ from sklearn.naive_bayes import MultinomialNB
 class MultinomialNaiveBayesClassifier(object):
     """ A Naive Bayes Classifier object."""
 
-    def __init__(self):
-        self.model = MultinomialNB()
+    def __init__(self, alpha=1.0, fit_prior=False):
+        self.model = MultinomialNB(alpha=alpha, fit_prior=fit_prior)
 
     def standardize(self, X):
         """ Standardize the data.

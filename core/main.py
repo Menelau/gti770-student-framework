@@ -35,6 +35,7 @@ from commons.preprocessors.discretization.strategies.unsupervised.unsupervised_d
 from commons.preprocessors.discretization.strategies.supervised.supervised_discretization_strategy import \
     SupervisedDiscretizationStrategy
 
+
 def main():
     """
         Program's entry point.
@@ -46,6 +47,9 @@ def main():
     galaxy_csv_file = os.environ["VIRTUAL_ENV"] + "/data/csv/galaxy/galaxy.csv"
     galaxy_feature_csv_file = os.environ["VIRTUAL_ENV"] + "/data/csv/galaxy/galaxy_feature_vectors.csv"
     galaxy_images_path = os.environ["VIRTUAL_ENV"] + "/data/images/"
+    galaxy_feature_vector_export_path = os.environ[
+                                            "VIRTUAL_ENV"] + "/data/csv/galaxy/exported_personal_galaxy_feature_vectors.csv"
+    galaxy_mlp_export_path = os.environ["VIRTUAL_ENV"] + "/data/models/exports/MLP/my_mlp"
 
     # Create instance of data set loading strategies.
     galaxy_image_data_set_strategy = GalaxyDataSetImageStrategy()
@@ -70,6 +74,7 @@ def main():
     label_dataset = context.load_dataset(csv_file=galaxy_csv_file, one_hot=False,
                                          validation_size=np.float32(validation_size))
 
+    # For TP02, set the discretization strategy and discretize data.
     preprocessor_context = DiscretizerContext(SupervisedDiscretizationStrategy())
 
     supervised_discretised_dataset = preprocessor_context.discretize(data_set=feature_dataset,
@@ -85,9 +90,8 @@ def main():
     features = galaxy_processor.process_galaxy(label_dataset)
 
     # Save extracted features to file.
-    save_file_path = os.environ["VIRTUAL_ENV"] + "/data/csv/galaxy/exported_personal_galaxy_feature_vectors.csv"
-    np.savetxt(save_file_path, features, delimiter=",")
-    print("File saved in directory " + save_file_path)
+    np.savetxt(galaxy_feature_vector_export_path, features, delimiter=",")
+    print("File saved in directory " + galaxy_feature_vector_export_path)
 
 
 if __name__ == '__main__':
