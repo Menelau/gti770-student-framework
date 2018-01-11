@@ -85,10 +85,6 @@ tensorflow==1.4.1
 tensorflow-tensorboard==0.1.8
 terminado==0.8.1
 testpath==0.3.1
-tflearn==0.3.2
-Theano==1.0.1
-torch==0.2.0.post3
-torchvision==0.2.0
 tornado==4.5.2
 traitlets==4.3.2
 urllib3==1.22
