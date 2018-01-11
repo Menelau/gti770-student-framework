@@ -1,6 +1,7 @@
 from unittest import TestCase
 
 import numpy as np
+import os
 
 from commons.helpers.dataset.context import Context
 from commons.helpers.dataset.strategies.galaxy_dataset.feature_strategy import GalaxyDataSetFeatureStrategy
@@ -8,7 +9,7 @@ from commons.helpers.dataset.strategies.galaxy_dataset.feature_strategy import G
 
 class TestGalaxyDataSetFeatureStrategy(TestCase):
     def setUp(self):
-        self.path = "/opt/project/data/csv/galaxy/galaxy_feature_vectors.csv"
+        self.path = os.environ["VIRTUAL_ENV"] + "/data/csv/galaxy/galaxy_feature_vectors.csv"
         self.validation_size = np.float32(0.2)
 
     def test_load_dataset_no_oneHot(self):

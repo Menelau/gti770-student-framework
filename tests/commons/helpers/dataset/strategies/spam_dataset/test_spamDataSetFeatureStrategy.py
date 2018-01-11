@@ -1,6 +1,7 @@
 from unittest import TestCase
 
 import numpy as np
+import os
 
 from commons.helpers.dataset.context import Context
 from commons.helpers.dataset.strategies.spam_dataset.feature_strategy import SpamDataSetFeatureStrategy
@@ -8,7 +9,7 @@ from commons.helpers.dataset.strategies.spam_dataset.feature_strategy import Spa
 
 class TestSpamDataSetFeatureStrategy(TestCase):
     def setUp(self):
-        self.path = "/opt/project/data/csv/spam/spam.csv"
+        self.path = os.environ["VIRTUAL_ENV"] + "/data/csv/spam/spam.csv"
 
     def test_load_dataset_no_oneHot(self):
         galaxy_data_set_strategy = SpamDataSetFeatureStrategy()

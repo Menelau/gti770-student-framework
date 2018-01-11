@@ -2,6 +2,7 @@ from unittest import TestCase
 
 import cv2
 import numpy as np
+import os
 
 from commons.helpers.dataset.context import Context
 from commons.helpers.dataset.strategies.galaxy_dataset.image_strategy import GalaxyDataSetImageStrategy
@@ -14,7 +15,7 @@ class TestDataSet(TestCase):
         self.batch_size = 64
 
         # Test CSV path.
-        self.path = "/opt/project/data/csv/galaxy/galaxy.csv"
+        self.path = os.environ["VIRTUAL_ENV"] + "/data/csv/galaxy/galaxy.csv"
 
         # Load data set.
         galaxy_data_set_strategy = GalaxyDataSetImageStrategy()
@@ -35,7 +36,7 @@ class TestDataSet(TestCase):
         reference_dataset_img_name = self.dataset.train._images[0]
 
         # Get the path of the first image ID.
-        path = "/opt/project/data/images/" + str(test_dataset_img_name) + ".jpg"
+        path = os.environ["VIRTUAL_ENV"] + "/data/images/" + str(test_dataset_img_name) + ".jpg"
 
         # Load image.
         test_dataset_image = cv2.imread(path)

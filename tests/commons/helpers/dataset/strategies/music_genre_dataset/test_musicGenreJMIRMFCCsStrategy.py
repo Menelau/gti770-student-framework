@@ -1,5 +1,6 @@
 from unittest import TestCase
 
+import os
 import numpy as np
 
 from commons.helpers.dataset.context import Context
@@ -9,7 +10,7 @@ from commons.helpers.dataset.strategies.music_genre_dataset.jmirmfcc_strategy im
 class TestMusicGenreJMIRMFCCsStrategy(TestCase):
 
     def setUp(self):
-        self.path = "/opt/project/data/csv/music_genre/msd-jmirmfccs_dev.csv"
+        self.path = os.environ["VIRTUAL_ENV"] + "/data/csv/music_genre/msd-jmirmfccs_dev.csv"
 
     def test_load_dataset_no_oneHot(self):
         galaxy_data_set_strategy = MusicGenreJMIRMFCCsStrategy()

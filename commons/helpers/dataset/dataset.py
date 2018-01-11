@@ -17,7 +17,7 @@ Group :
 
 import cv2
 import numpy as np
-
+import os
 
 class DataSet(object):
     """
@@ -135,8 +135,8 @@ class DataSet(object):
 
         for sample in batch:
             # Create path to image's file.
-            #TODO : Change for env variable.
-            path = ("/opt/project/data/images/" + str(sample[0]) + ".jpg")
+
+            path = (os.environ["VIRTUAL_ENV"] + "/data/images/" + str(sample[0]) + ".jpg")
 
             # Use OpenCV to read the image.
             image = cv2.imread(path)
