@@ -29,4 +29,4 @@ class TestGalaxyProcessor(TestCase):
 
         # Process galaxies.
         galaxy_processor = GalaxyProcessor(self.galaxy_images_path)
-        features = galaxy_processor.process_galaxy(self.label_dataset)
+        #features = galaxy_processor.process_galaxy(self.label_dataset)
