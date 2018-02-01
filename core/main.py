@@ -30,6 +30,7 @@ from commons.preprocessors.discretization.context import DiscretizerContext
 from commons.helpers.dataset.strategies.galaxy_dataset.feature_strategy import GalaxyDataSetFeatureStrategy
 from commons.helpers.dataset.strategies.galaxy_dataset.image_strategy import GalaxyDataSetImageStrategy
 from commons.helpers.dataset.strategies.galaxy_dataset.label_strategy import GalaxyDataSetLabelStrategy
+from commons.helpers.dataset.strategies.spam_dataset.feature_strategy import SpamDataSetFeatureStrategy
 from commons.preprocessors.discretization.strategies.unsupervised.unsupervised_discretization_strategy import \
     UnsupervisedDiscretizationStrategy
 from commons.preprocessors.discretization.strategies.supervised.supervised_discretization_strategy import \
@@ -46,6 +47,7 @@ def main():
     # Get the ground truth CSV file from script's parameters.
     galaxy_csv_file = os.environ["VIRTUAL_ENV"] + "/data/csv/galaxy/galaxy.csv"
     galaxy_feature_csv_file = os.environ["VIRTUAL_ENV"] + "/data/csv/galaxy/galaxy_feature_vectors.csv"
+    spam_feature_csv_file = os.environ["VIRTUAL_ENV"] + "/data/csv/spam/spam.csv"
     galaxy_images_path = os.environ["VIRTUAL_ENV"] + "/data/images/"
     galaxy_feature_vector_export_path = os.environ[
                                             "VIRTUAL_ENV"] + "/data/csv/galaxy/exported_personal_galaxy_feature_vectors.csv"
@@ -55,6 +57,7 @@ def main():
     galaxy_image_data_set_strategy = GalaxyDataSetImageStrategy()
     galaxy_feature_data_set_strategy = GalaxyDataSetFeatureStrategy()
     galaxy_label_data_set_strategy = GalaxyDataSetLabelStrategy()
+    spam_feature_dataset_strategy = SpamDataSetFeatureStrategy()
 
     # Set the context to galaxy image data set loading strategy.
     context = Context(galaxy_image_data_set_strategy)
@@ -73,6 +76,8 @@ def main():
     context.set_strategy(galaxy_label_data_set_strategy)
     label_dataset = context.load_dataset(csv_file=galaxy_csv_file, one_hot=False,
                                          validation_size=np.float32(validation_size))
+    context.set_strategy(spam_feature_dataset_strategy)
+    spam_feature_dataset = context.load_dataset(csv_file=spam_feature_csv_file, one_hot=False, validation_size=np.float32(validation_size))
 
     # For TP02, set the discretization strategy and discretize data.
     preprocessor_context = DiscretizerContext(SupervisedDiscretizationStrategy())

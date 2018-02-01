@@ -72,7 +72,7 @@ class SpamDataSetFeatureStrategy:
         except AttributeError:
             raise ValidationSizeException("Validation size is not a valid floating point number.")
 
-    def _create_datasets(self, img_names, labels, validation_size):
+    def _create_datasets(self, spam_features, labels, validation_size):
         # Creates inner DataSets class.
         class DataSets(object):
             pass
@@ -85,18 +85,18 @@ class SpamDataSetFeatureStrategy:
         self._is_positive(validation_size)
 
         # Calculates the training set and validation set size.
-        train_size = int(np.round((1 - validation_size) * img_names.shape[0]))
-        validation_size = int(np.round(validation_size * img_names.shape[0]))
+        train_size = int(np.round((1 - validation_size) * spam_features.shape[0]))
+        validation_size = int(np.round(validation_size * spam_features.shape[0]))
 
         # Assign the images to the training and validation data sets.
-        train_img_names = img_names[:train_size]
+        train_spam_features = spam_features[:train_size]
         train_labels = labels[:train_size]
-        validation_img_names = img_names[-validation_size:]
+        validation_spam_features = spam_features[-validation_size:]
         validation_labels = labels[-validation_size:]
 
         # Create the data sets.
-        data_sets.train = DataSet().withImg_names(train_img_names).withLabels(train_labels)
-        data_sets.valid = DataSet().withImg_names(validation_img_names).withLabels(validation_labels)
+        data_sets.train = DataSet().withFeatures(train_spam_features).withLabels(train_labels)
+        data_sets.valid = DataSet().withFeatures(validation_spam_features).withLabels(validation_labels)
 
         return data_sets
 
