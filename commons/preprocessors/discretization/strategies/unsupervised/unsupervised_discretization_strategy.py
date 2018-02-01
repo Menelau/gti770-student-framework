@@ -40,7 +40,7 @@ class UnsupervisedDiscretizationStrategy(object):
         return min, max
 
     def discretize(self, data_set, validation_size, nb_bins=10):
-        """ Discretize continuous attribute using MDLP method.
+        """ Discretize continuous values into bins using unsupervised algorithm.
 
         Args:
             data_set: The data set containing continuous data.
