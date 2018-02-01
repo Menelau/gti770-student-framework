@@ -174,8 +174,9 @@ class GalaxyDataSetFeatureStrategy:
 
         Args:
             csv_file: a CSV file containing ground truth and file names.
-            feature_vector: a boolean. It True, will load the data set from a feature vector.
-                            If False, will load the data set required to extract galaxy image features.
+            one_hot: a boolean. It True, will load the data set labels as a one-hot vector e.g. [0, 1, 0].
+                            If False, will load the data set labels as integers.
+            validation_size: the specified user's validation data set size.
 
         Returns:
             A tuple containing the feature vectors and labels associated to these vectors.
