@@ -160,7 +160,7 @@ class SpamDataSetFeatureStrategy:
         # Shuffle the data.
         features, encoded_labels = shuffle(spam_vectors, encoded_labels)
 
-        return spam_vectors, encoded_labels
+        return features, encoded_labels
 
     def load_dataset(self, csv_file, one_hot, validation_size):
         """ Load a data set.
