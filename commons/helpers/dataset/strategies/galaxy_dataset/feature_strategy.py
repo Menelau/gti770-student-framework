@@ -137,7 +137,7 @@ class GalaxyDataSetFeatureStrategy:
 
                 # For each row, store the feature vector and its associated class.
                 for row in reader:
-                    features.append(row[1:74])
+                    features.append(row[1:75])
                     labels.append(row[75])
 
         except FileNotFoundError:

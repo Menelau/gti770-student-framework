@@ -130,7 +130,7 @@ class SpamDataSetFeatureStrategy:
 
                 # For each row, store the spam feature vector and its associated class.
                 for row in reader:
-                    spam_vectors.append(row[:56])
+                    spam_vectors.append(row[0:57])
                     labels.append(row[57])
 
         except FileNotFoundError:
